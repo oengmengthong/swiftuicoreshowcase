@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6931C15B2E27A3BA00DD4927 /* SwiftUI_Implementation_Guide.md in Resources */ = {isa = PBXBuildFile; fileRef = 6931C1582E27A3BA00DD4927 /* SwiftUI_Implementation_Guide.md */; };
+		6931C15C2E27A3BA00DD4927 /* ContextRequirement.md in Resources */ = {isa = PBXBuildFile; fileRef = 6931C1562E27A3BA00DD4927 /* ContextRequirement.md */; };
+		6931C15D2E27A3BA00DD4927 /* SwiftUI_Quick_Reference.md in Resources */ = {isa = PBXBuildFile; fileRef = 6931C1592E27A3BA00DD4927 /* SwiftUI_Quick_Reference.md */; };
+		6931C15E2E27A3BA00DD4927 /* SwiftUI_Comprehensive_Research.md in Resources */ = {isa = PBXBuildFile; fileRef = 6931C1572E27A3BA00DD4927 /* SwiftUI_Comprehensive_Research.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6931C0DB2E279F5F00DD4927 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +34,10 @@
 		6931C0CA2E279F5C00DD4927 /* swiftuicoreshowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftuicoreshowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6931C0DA2E279F5E00DD4927 /* swiftuicoreshowcaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftuicoreshowcaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6931C0E42E279F5F00DD4927 /* swiftuicoreshowcaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftuicoreshowcaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6931C1562E27A3BA00DD4927 /* ContextRequirement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ContextRequirement.md; sourceTree = "<group>"; };
+		6931C1572E27A3BA00DD4927 /* SwiftUI_Comprehensive_Research.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SwiftUI_Comprehensive_Research.md; sourceTree = "<group>"; };
+		6931C1582E27A3BA00DD4927 /* SwiftUI_Implementation_Guide.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SwiftUI_Implementation_Guide.md; sourceTree = "<group>"; };
+		6931C1592E27A3BA00DD4927 /* SwiftUI_Quick_Reference.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SwiftUI_Quick_Reference.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +86,7 @@
 		6931C0C12E279F5C00DD4927 = {
 			isa = PBXGroup;
 			children = (
+				6931C15A2E27A3BA00DD4927 /* docs */,
 				6931C0CC2E279F5C00DD4927 /* swiftuicoreshowcase */,
 				6931C0DD2E279F5F00DD4927 /* swiftuicoreshowcaseTests */,
 				6931C0E72E279F5F00DD4927 /* swiftuicoreshowcaseUITests */,
@@ -90,6 +102,17 @@
 				6931C0E42E279F5F00DD4927 /* swiftuicoreshowcaseUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6931C15A2E27A3BA00DD4927 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				6931C1562E27A3BA00DD4927 /* ContextRequirement.md */,
+				6931C1572E27A3BA00DD4927 /* SwiftUI_Comprehensive_Research.md */,
+				6931C1582E27A3BA00DD4927 /* SwiftUI_Implementation_Guide.md */,
+				6931C1592E27A3BA00DD4927 /* SwiftUI_Quick_Reference.md */,
+			);
+			path = docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +235,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6931C15B2E27A3BA00DD4927 /* SwiftUI_Implementation_Guide.md in Resources */,
+				6931C15C2E27A3BA00DD4927 /* ContextRequirement.md in Resources */,
+				6931C15D2E27A3BA00DD4927 /* SwiftUI_Quick_Reference.md in Resources */,
+				6931C15E2E27A3BA00DD4927 /* SwiftUI_Comprehensive_Research.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +439,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixelplatforms.swiftuicoreshowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixelplatforms.ComponentSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -451,7 +478,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixelplatforms.swiftuicoreshowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixelplatforms.ComponentSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;

@@ -6,55 +6,54 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @StateObject private var showcaseData = ShowcaseData()
+    @State private var selectedCategory: ShowcaseCategory? = nil
+    
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+            List(selection: $selectedCategory) {
+                ForEach(ShowcaseCategory.allCases, id: \.self) { category in
+                    Section(category.rawValue) {
+                        ForEach(showcaseData.items.filter { $0.category == category }) { item in
+                            NavigationLink(destination: item.destination) {
+                                Label(item.title, systemImage: item.systemImage)
+                                    .badge(item.description)
+                            }
+                        }
                     }
                 }
             }
+            .navigationTitle("SwiftUI Core Showcase")
+            .navigationSplitViewColumnWidth(min: 300, ideal: 350)
         } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            if let selectedCategory = selectedCategory {
+                VStack {
+                    Image(systemName: selectedCategory.systemImage)
+                        .font(.system(size: 60))
+                        .foregroundStyle(.secondary)
+                    Text(selectedCategory.rawValue)
+                        .font(.title)
+                        .fontWeight(.medium)
+                    Text("Select a demo to explore SwiftUI features")
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                VStack {
+                    Image(systemName: "swift")
+                        .font(.system(size: 80))
+                        .foregroundStyle(.blue)
+                    Text("SwiftUI Core Showcase")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    Text("Everything you can do with pure SwiftUI")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                    Text("Select a category to explore features")
+                        .padding(.top)
+                        .foregroundStyle(.tertiary)
+                }
             }
         }
     }
@@ -62,5 +61,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
