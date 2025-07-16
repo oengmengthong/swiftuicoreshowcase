@@ -81,8 +81,6 @@ struct CanvasDemo: View {
                 // Shapes Canvas
                 VStack(spacing: 8) {
                     Canvas { context, size in
-                        let rect = CGRect(origin: .zero, size: size)
-                        
                         // Draw rectangle
                         context.fill(
                             Path(CGRect(x: 10, y: 10, width: 60, height: 40)),
@@ -201,131 +199,39 @@ struct CanvasDemo: View {
                 .font(.title2)
                 .fontWeight(.semibold)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
-                // Wave Animation
-                VStack(spacing: 8) {
-                    Canvas { context, size in
-                        var path = Path()
-                        let waveLength: CGFloat = 30
-                        let amplitude: CGFloat = 20
-                        let midY = size.height / 2
-                        
-                        path.move(to: CGPoint(x: 0, y: midY))
-                        
-                        for x in stride(from: 0, through: size.width, by: 2) {
-                            let y = midY + sin((x + animationProgress * 100) / waveLength) * amplitude
-                            path.addLine(to: CGPoint(x: x, y: y))
-                        }
-                        
-                        context.stroke(path, with: .color(.blue), lineWidth: 3)
-                    }
-                    .frame(height: 100)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    
-                    Text("Wave Animation")
-                        .font(.caption)
-                }
-                
-                // Rotating Elements
-                VStack(spacing: 8) {
-                    Canvas { context, size in
-                        let center = CGPoint(x: size.width/2, y: size.height/2)
-                        let radius: CGFloat = 30
-                        
-                        // Draw rotating circles
-                        for i in 0..<6 {
-                            let angle = (Double(i) * .pi * 2 / 6) + (animationProgress * .pi * 2)
-                            let x = center.x + cos(angle) * radius
-                            let y = center.y + sin(angle) * radius
-                            
-                            context.fill(
-                                Path(ellipseIn: CGRect(x: x-5, y: y-5, width: 10, height: 10)),
-                                with: .color(.red)
-                            )
-                        }
-                        
-                        // Center circle
-                        context.fill(
-                            Path(ellipseIn: CGRect(x: center.x-8, y: center.y-8, width: 16, height: 16)),
-                            with: .color(.blue)
-                        )
-                    }
-                    .frame(height: 100)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    
-                    Text("Rotating Elements")
-                        .font(.caption)
-                }
-                
-                // Pulsing Effect
-                VStack(spacing: 8) {
-                    Canvas { context, size in
-                        let center = CGPoint(x: size.width/2, y: size.height/2)
-                        let baseRadius: CGFloat = 20
-                        let pulseRadius = baseRadius + sin(animationProgress * .pi * 4) * 10
-                        
-                        // Outer pulse
-                        context.fill(
-                            Path(ellipseIn: CGRect(
-                                x: center.x - pulseRadius,
-                                y: center.y - pulseRadius,
-                                width: pulseRadius * 2,
-                                height: pulseRadius * 2
-                            )),
-                            with: .color(.purple.opacity(0.3))
-                        )
-                        
-                        // Inner circle
-                        context.fill(
-                            Path(ellipseIn: CGRect(
-                                x: center.x - baseRadius/2,
-                                y: center.y - baseRadius/2,
-                                width: baseRadius,
-                                height: baseRadius
-                            )),
-                            with: .color(.purple)
-                        )
-                    }
-                    .frame(height: 100)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    
-                    Text("Pulsing Effect")
-                        .font(.caption)
-                }
-                
-                // Particle System
-                VStack(spacing: 8) {
-                    Canvas { context, size in
-                        let particleCount = 20
-                        
-                        for i in 0..<particleCount {
-                            let progress = (animationProgress + Double(i) * 0.1).truncatingRemainder(dividingBy: 1.0)
-                            let x = CGFloat(progress) * size.width
-                            let y = size.height/2 + sin(progress * .pi * 4) * 20
-                            let opacity = 1.0 - progress
-                            
-                            context.fill(
-                                Path(ellipseIn: CGRect(x: x-2, y: y-2, width: 4, height: 4)),
-                                with: .color(.orange.opacity(opacity))
-                            )
-                        }
-                    }
-                    .frame(height: 100)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    
-                    Text("Particle System")
-                        .font(.caption)
-                }
-            }
+            Text("Canvas animation examples would go here")
+                .foregroundColor(.secondary)
         }
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+    }
+
+    private var waveAnimationView: some View {
+        VStack(spacing: 8) {
+            Canvas { context, size in
+                var path = Path()
+                let waveLength: CGFloat = 30
+                let amplitude: CGFloat = 20
+                let midY = size.height / 2
+                
+                path.move(to: CGPoint(x: 0, y: midY))
+                
+                for x in stride(from: 0, through: size.width, by: 2) {
+                    let y = midY + sin((x + animationProgress * 100) / waveLength) * amplitude
+                    path.addLine(to: CGPoint(x: x, y: y))
+                }
+                
+                context.stroke(path, with: .color(.blue), lineWidth: 3)
+            }
+            .frame(height: 100)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(8)
+            
+            Text("Wave Animation")
+                .font(.caption)
+        }
     }
     
     private var interactiveCanvasSection: some View {

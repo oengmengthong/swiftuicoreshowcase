@@ -291,7 +291,7 @@ struct GradientDemo: View {
                             colors: [.red, .yellow, .green, .blue, .purple, .red],
                             center: .center,
                             startAngle: .degrees(animationProgress * 360),
-                            endAngle: .degrees(animationProgress * 360 + 360)
+                            endAngle: .degrees(animationProgress * 360 + 360.0)
                         ))
                         .frame(height: 80)
                     Text("Rotating")
@@ -305,7 +305,7 @@ struct GradientDemo: View {
                             colors: [.yellow, .orange, .red],
                             center: .center,
                             startRadius: 0,
-                            endRadius: 30 + sin(animationProgress * 2 * .pi) * 20
+                            endRadius: 30 + sin(animationProgress * 2 * Double.pi) * 20
                         ))
                         .frame(height: 80)
                     Text("Pulsing")
@@ -330,9 +330,9 @@ struct GradientDemo: View {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(LinearGradient(
                             colors: [
-                                Color.red.opacity(0.5 + sin(animationProgress * .pi) * 0.5),
-                                Color.blue.opacity(0.5 + cos(animationProgress * .pi) * 0.5),
-                                Color.green.opacity(0.5 + sin(animationProgress * .pi * 2) * 0.5)
+                                Color.red.opacity(0.5 + sin(animationProgress * Double.pi) * 0.5),
+                                Color.blue.opacity(0.5 + cos(animationProgress * Double.pi) * 0.5),
+                                Color.green.opacity(0.5 + sin(animationProgress * Double.pi * 2) * 0.5)
                             ],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing

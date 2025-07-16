@@ -400,10 +400,10 @@ struct DeepestView: View {
             Text("This is the deepest navigation level in this demo")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            
+                
             Text("Use the back button to navigate back")
                 .font(.caption)
-                .foregroundColor(.tertiary)
+                .foregroundStyle(.tertiary)
             
             Spacer()
         }

@@ -356,12 +356,12 @@ struct StarShape: Shape {
             let midAngle = (angle + nextAngle) / 2
             
             let outerPoint = CGPoint(
-                x: center.x + cos(angle) * radius,
-                y: center.y + sin(angle) * radius
+                x: center.x + CGFloat(cos(angle)) * radius,
+                y: center.y + CGFloat(sin(angle)) * radius
             )
             let innerPoint = CGPoint(
-                x: center.x + cos(midAngle) * innerRadius,
-                y: center.y + sin(midAngle) * innerRadius
+                x: center.x + CGFloat(cos(midAngle)) * innerRadius,
+                y: center.y + CGFloat(sin(midAngle)) * innerRadius
             )
             
             if i == 0 {
@@ -409,8 +409,8 @@ struct HexagonShape: Shape {
         for i in 0..<6 {
             let angle = Double(i) * .pi / 3
             let point = CGPoint(
-                x: center.x + cos(angle) * radius,
-                y: center.y + sin(angle) * radius
+                x: center.x + CGFloat(cos(angle)) * radius,
+                y: center.y + CGFloat(sin(angle)) * radius
             )
             
             if i == 0 {

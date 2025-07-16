@@ -226,7 +226,7 @@ extension ButtonRole {
             return "Destructive"
         case .cancel:
             return "Cancel"
-        @unknown default:
+        default:
             return "Unknown"
         }
     }

@@ -87,7 +87,7 @@ struct StackLayoutDemo: View {
                     .cornerRadius(12)
                     
                     // Code example
-                    CodeExampleView(for: selectedTab, spacing: spacing, alignment: alignment)
+                    CodeExampleView(selectedTab: selectedTab, spacing: spacing, alignment: alignment)
                 }
                 .padding()
             }
